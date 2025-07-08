@@ -1,21 +1,21 @@
 import { Routes } from '@angular/router';
-import { Tasks } from './tasks/tasks';
-import { Detail } from './detail/detail';
-import { Create } from './create/create';
-import { Error404 } from './error-404/error-404';
+
+
+
+
 
 export const routes: Routes = [
   {
     path: 'tasks/create',
-    component: Create
+    loadComponent: () => import('./create/create').then(m => m.Create)
   },
   {
     path: 'tasks/:id',
-    component: Detail
+    loadComponent: () => import('./detail/detail').then(m => m.Detail)
   },
   {
     path: 'tasks',
-    component: Tasks,
+    loadComponent: () => import('./tasks/tasks').then(m => m.Tasks),
     pathMatch: 'full',
   },
   {
@@ -25,6 +25,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    component: Error404
+    loadComponent: () => import('./error-404/error-404').then(m => m.Error404)
   }
 ];
