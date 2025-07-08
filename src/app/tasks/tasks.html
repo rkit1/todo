@@ -1,5 +1,16 @@
+<mat-form-field class="search">
+  <mat-label>Поиск</mat-label>
+  <input matInput type="text" [(ngModel)]="filter">
+  @if (filter()) {
+    <button matSuffix matIconButton aria-label="Clear" (click)="filter.set(undefined)">
+      <mat-icon>close</mat-icon>
+    </button>
+  }
+</mat-form-field>
+
+
 <div class="table">
-  @for (task of dataProvider.data().tasks; track task.id) {
+  @for (task of tasks(); track task.id) {
   <div class="task" [class.incomplete]="task.status === 'incomplete'">
     <h2 class="title">
       <mat-icon>{{
