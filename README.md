@@ -12,4 +12,4 @@ ng serve
 
 ## Демо на гитхабе
 
-# [(https://rkit1.github.io/todo](https://rkit1.github.io/todo)
+# [https://rkit1.github.io/todo](https://rkit1.github.io/todo)

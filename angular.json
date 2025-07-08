@@ -32,7 +32,8 @@
             "styles": [
               "@angular/material/prebuilt-themes/cyan-orange.css",
               "src/styles.scss"
-            ]
+            ],
+            "outputPath": "dist"
           },
           "configurations": {
             "production": {
@@ -93,6 +94,9 @@
               "src/styles.scss"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
