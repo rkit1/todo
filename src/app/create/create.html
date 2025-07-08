@@ -1,0 +1,24 @@
+<form (submit)="create($event)" #form="ngForm">
+  <div class="form">
+    <mat-form-field>
+      <mat-label>Название</mat-label>
+      <input matInput [(ngModel)]="title" required name="title" #titleField="ngModel"/>
+      <mat-error>{{titleField.errors?.['required'] ? 'Необходимо заполнить поле' : ''}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Описание</mat-label>
+      <textarea matInput [(ngModel)]="description" name="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Статус</mat-label>
+      <mat-select [(ngModel)]="status" name="status">
+        <mat-option value="incomplete">Не завершена</mat-option>
+        <mat-option value="complete">Завершена</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button matButton="filled" class="button" [disabled]="form.pristine || form.invalid">
+      <mat-icon>save</mat-icon>
+      Сохранить
+    </button>
+  </div>
+</form>

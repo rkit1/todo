@@ -1,0 +1,25 @@
+<div class="table">
+  @for (task of dataProvider.data().tasks; track task.id) {
+  <div class="task" [class.incomplete]="task.status === 'incomplete'">
+    <h2 class="title">
+      <mat-icon>{{
+        task.status === "complete" ? "check" : "pending_actions"
+      }}</mat-icon>
+      {{ task.title }}
+    </h2>
+
+    <div class="description">{{ task.description }}</div>
+
+    <div class="controls">
+      <a matButton="filled" [routerLink]="['/tasks', task.id]">
+        <mat-icon>more_vert</mat-icon>
+        Подробнее
+      </a>
+      <button matButton="filled" class="warn" (click)="delete(task.id)">
+        <mat-icon>delete</mat-icon>
+        Удалить
+      </button>
+    </div>
+  </div>
+  }
+</div>

@@ -1,0 +1,13 @@
+@let t = task();
+
+<div class="content">
+  @if (t) {
+  <h1>{{ t.title }}</h1>
+  <p class="description">{{ t.description }}</p>
+  <mat-checkbox [ngModel]="complete()" (change)="changeComplete($event)"
+    >Завершена</mat-checkbox
+  >
+  } @else {
+  <h1>Задача не найдена</h1>
+  }
+</div>
